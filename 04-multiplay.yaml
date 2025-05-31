@@ -1,5 +1,6 @@
 - name: PLAY1
   hosts: local # no need of username and password
+  connection: local
   tasks:
   - name: hello from play 1 and tasks1
     ansible.builtin.debug:
@@ -11,6 +12,7 @@
 
 - name: PLAY2
   hosts: local # no need of username and password
+  connection: local
   tasks:
   - name: hello from play 2 and tasks1
     ansible.builtin.debug:
