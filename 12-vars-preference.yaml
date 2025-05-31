@@ -13,5 +13,5 @@
   - name: print the information
     GREETING: Hello From Task
     ansible.builtin.debug:
-      msg: print {{ GREETING }}
+      msg: "print {{ GREETING }}"
   
