@@ -3,19 +3,19 @@
   tasks:
   - name: hello from play 1 and tasks1
     ansible.builtin.debug:
-     msg: "hello from PLAY-1 and TASK-1"
+      msg: "hello from PLAY-1 and TASK-1"
 
   - name: hello from play 1 and tasks2
     ansible.builtin.debug:
-     msg: "hello from PLAY-1 and TASK-2"
+      msg: "hello from PLAY-1 and TASK-2"
 
 - name: PLAY2
   hosts: local # no need of username and password
   tasks:
   - name: hello from play 2 and tasks1
     ansible.builtin.debug:
-     msg: "hello from PLAY-2 and TASK-1"
+      msg: "hello from PLAY-2 and TASK-1"
 
   - name: hello from play 2 and tasks2
     ansible.builtin.debug:
-     msg: "hello from PLAY-2 and TASK-2"
+      msg: "hello from PLAY-2 and TASK-2"
