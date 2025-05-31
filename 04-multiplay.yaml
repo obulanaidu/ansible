@@ -1,5 +1,5 @@
 - name: PLAY1
-  hosts: local
+  hosts: local # no need of username and password
   tasks:
   - name: hello from play 1 and tasks1
     ansible.builtin.debug:
@@ -10,7 +10,7 @@
      msg: "hello from PLAY-1 and TASK-2"
 
 - name: PLAY2
-  hosts: local
+  hosts: local # no need of username and password
   tasks:
   - name: hello from play 2 and tasks1
     ansible.builtin.debug:
