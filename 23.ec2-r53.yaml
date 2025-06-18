@@ -1,14 +1,14 @@
 - name: create ec2 and r53 records
-  hosts: localhost
+  hosts: local
   connection: local
   vars:
     instances:
     - mysql
     - backend
     - frontend
-    subnet_id: subnet-0044339d6fae613d5
-    sg_id: sg-0acf5f97dfa79fb67
-    # zone: daws84s.site
+    subnet_id: subnet-0984d47e985171bd0
+    sg_id: sg-01bc7ebe005fb1cb2
+    zone: obul.site
   tasks:
   - name: create ec2
     amazon.aws.ec2_instance:
@@ -20,33 +20,33 @@
       tags:
         Name: "{{ item }}"
     loop: "{{ instances }}"
-    # register: ec2_output
+    register: ec2_output
 
-  # - name: print ec2_output
-  #   ansible.builtin.debug:
-  #     msg: "{{ ec2_output }}"
+  - name: print ec2_output
+    ansible.builtin.debug:
+      msg: "{{ ec2_output }}"
 
-  # - name: create r53 records
-  #   amazon.aws.route53:
-  #     state: present
-  #     zone: "{{ zone }}"
-  #     record: "{{ item.item }}.{{ zone }}"
-  #     type: A
-  #     ttl: 1
-  #     value: "{{ item.instances[0].private_ip_address }}"
-  #     wait: true
-  #     overwrite: true
-  #   loop: "{{ ec2_output.results }} "
+  - name: create r53 records
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{ item.item }}.{{ zone }}"
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].private_ip_address }}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2_output.results }} "
 
-  # - name: create r53 records
-  #   amazon.aws.route53:
-  #     state: present
-  #     zone: "{{ zone }}"
-  #     record: "{{ zone }}"
-  #     type: A
-  #     ttl: 1
-  #     value: "{{ item.instances[0].public_ip_address }}"
-  #     wait: true
-  #     overwrite: true
-  #   loop: "{{ ec2_output.results }} "
-  #   when: item.item == "frontend"
+  - name: create r53 records
+    amazon.aws.route53:
+      state: present
+      zone: "{{ zone }}"
+      record: "{{ zone }}"
+      type: A
+      ttl: 1
+      value: "{{ item.instances[0].public_ip_address }}"
+      wait: true
+      overwrite: true
+    loop: "{{ ec2_output.results }} "
+    when: item.item == "frontend"
