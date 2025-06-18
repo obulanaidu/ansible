@@ -3,3 +3,68 @@
   tasks: # list of tasks
   - name: ping the server
     ansible.builtin.ping:
+
+- name: install nginx and start the server
+  hosts: frontend
+  become: yes
+  tasks:
+  - name: install nginx server
+    ansible.builtin.package:
+      name: nginx
+      state: installed
+  - name: start nginx server
+    ansible.builtin.service:
+      name: nginx
+      state: started
+
+- name: play1
+  hosts: local
+  connection: local
+  tasks:
+  - name: hello from play 1 and tasks1
+    ansible.builtin.debug:
+    msg: "hello from PLAY-1 and TASK-1"
+  - name: hello from play1 and tasks1
+    ansible.builtin.debug:
+    msg: "hello from PLAY-1 and TASK-2"
+
+- name: play2
+  hosts: local
+  connection: local
+  tasks:
+  - name: hello from play 2 and tasks1
+    ansible.builtin.debug:
+      msg: "hello from PLAY-2 and TASK-1"
+  - name: hello from play 2 and tasks1
+    ansible.builtin.debug:
+      msg: "hello from PLAY-2 and TASK-2"
+
+- name: play level variables
+  hosts: local
+  connection: local
+  tasks:
+  vars:
+    COURSE: Ansible
+    TRAINER: Naidu
+    DURATION: 10HRS
+  tasks:
+  - name : print course information
+    ansible.builtin.debug:
+      msg: print {{COURSE}}
+
+- name: play level variables
+  hosts: local
+  connection: local
+  tasks:
+  vars:
+    COURSE: Ansible
+    TRAINER: Naidu
+    DURATION: 10HRS
+  tasks:
+  - name : print course information
+    vars:
+      COURSE: Ansible
+      TRAINER: Naidu
+    
+    ansible.builtin.debug:
+      msg: print {{COURSE}}
