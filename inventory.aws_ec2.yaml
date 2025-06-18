@@ -6,7 +6,6 @@ keyed_groups:
 - key: tags.Name #dyanamic_frontend
   prefix: "dynamic"
   separator: "-"  # it will take _ only by default if we give - also 
-become: yes
 filters:
   tag:Name: frontend
   instance-state-name : running
