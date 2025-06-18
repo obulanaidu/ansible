@@ -1,0 +1,14 @@
+- name: install and run nginx server
+  hosts: dynamic_frontend
+  become: yes
+  tasks:
+  - name: install nginx
+    ansible.builtin.dnf:
+      name: nginx
+      state: installed
+
+  - name: start nginx
+    ansible.builtin.service:
+      name: nginx
+      state: started    
+      enabled: yes     # torun this we give ansible-inventory -i inventory.aws_ec2.yaml --graph only for dynamic inventory quering
