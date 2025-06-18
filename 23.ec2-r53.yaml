@@ -8,7 +8,7 @@
     - frontend
     subnet_id: subnet-0044339d6fae613d5
     sg_id: sg-0acf5f97dfa79fb67
-    zone: daws84s.site
+    # zone: daws84s.site
   tasks:
   - name: create ec2
     amazon.aws.ec2_instance:
