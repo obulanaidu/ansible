@@ -26,32 +26,65 @@
 #     ansible.builtin.debug:
 #       msg: "hello from PLAY-2 and TASK-2"
 
-# - name: play level variables
-#   hosts: local
-#   connection: local
-#   tasks:
-#   vars:
-#     COURSE: Ansible
-#     TRAINER: Naidu
-#     DURATION: 10HRS
-#   tasks:
-#   - name : print course information
-#     ansible.builtin.debug:
-#       msg: print {{COURSE}}
+- name: play level variables
+  hosts: frontend
+  become: yes
+  vars:
+   COURSE: Devops
+   TRAINER: ravi
+   DURATION: 10HR
+  tasks:
+  - name: print course information
+    ansible.builtin.debug:
+    msg: hello {{COURSE}}
 
-# - name: play level variables
-#   hosts: local
-#   connection: local
-#   tasks:
-#   vars:
-#     COURSE: Ansible
-#     TRAINER: Naidu
-#     DURATION: 10HRS
-#   tasks:
-#   - name : print course information
-#     vars:
-#       COURSE: Ansible
-#       TRAINER: Naidu
-    
-#     ansible.builtin.debug:
-#       msg: print {{COURSE}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- name: ping the server
+  hosts: frontend
+  tasks:
+  - name: ping the server
+    ansible.builtin.ping:
+
+- name: print hello world
+  hosts: local
+  connection: local
+  tasks:
+  -name: print hello world
+  ansible.builtin.debug:
+   msg: "hellow world"
+
+- name: nginx
+  hosts: frontend
+  become: yes
+  tasks:
+  - name: install nginx
+    ansible.builtin.package:
+     name: nginx
+     state: present
+  - name: run nginx
+    ansible.builtin.service:
+     name: nginx
+     state: Started
+     enabed: yes
+     
