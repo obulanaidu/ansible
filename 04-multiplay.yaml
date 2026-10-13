@@ -62,13 +62,13 @@
   vars_files:
   - course.yaml
   tasks:
-  - name: print play level variables
+  - name: print 
     vars:
       course: java
     ansible.builtin.debug:
      msg: course is {{ course }}, Trainer is {{ trainer}}
 
-  - name: print play level variables2
+  - name: print play level variables
     vars:
      trainer: mahesh
     ansible.builtin.debug:
