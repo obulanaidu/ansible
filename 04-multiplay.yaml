@@ -72,19 +72,19 @@
 #     ansible.builtin.debug:
 #      msg: Trainer is {{ trainer}} 
   
-  - name: variables from prompt
-    hosts: local
-    connection: local
-    vars_prompt:
-    - name: USERNAME
-      prompt: please enter username
-      private: false
+- name: variables from prompt
+  hosts: local
+  connection: local
+  vars_prompt:
+  - name: USERNAME
+    prompt: please enter username
+    private: false
 
-    - name: PASSWORD
-      prompt: please enter password
-      private: True
+  - name: PASSWORD
+    prompt: please enter password
+    private: True
     tasks:
-    - name: print username and password
-      ansible.builtin.debug:
-       msg: "this is my {{ USERNAME }}, this is my {{ PASSWORd }}"
+  - name: print username and password
+    ansible.builtin.debug:
+     msg: "this is my {{ USERNAME }}, this is my {{ PASSWORd }}"
     
