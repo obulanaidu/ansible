@@ -37,3 +37,22 @@
   - name: print play level variables2
     ansible.builtin.debug:
      msg: course is {{ course }}, Trainer is {{ trainer}} 
+
+- name: play level variables
+  hosts: local
+  connection: local
+  vars:
+   course: devops
+   trainer: obul
+   duration: 10hr
+  tasks:
+  - name: print play level variables
+    vars:
+      course: java
+    ansible.builtin.debug:
+     msg: course is {{ course }}, Trainer is {{ trainer}}
+
+  - name: print play level variables2
+    ansible.builtin.debug:
+     msg: course is {{ course }}, Trainer is {{ trainer}} 
+  
