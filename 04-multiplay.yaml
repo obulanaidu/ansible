@@ -22,55 +22,55 @@
     ansible.builtin.debug:
       msg: "hello from PLAY-2 and TASK-2"
 
-- name: play level variables
-  hosts: local
-  connection: local
-  vars:
-   course: devops
-   trainer: obul
-   duration: 10hr
-  tasks:
-  - name: print play level variables
-    ansible.builtin.debug:
-     msg: course is {{ course }}, Trainer is {{ trainer}}
+# - name: play level variables
+#   hosts: local
+#   connection: local
+#   vars:
+#    course: devops
+#    trainer: obul
+#    duration: 10hr
+#   tasks:
+#   - name: print play level variables
+#     ansible.builtin.debug:
+#      msg: course is {{ course }}, Trainer is {{ trainer}}
 
-  - name: print play level variables2
-    ansible.builtin.debug:
-     msg: course is {{ course }}, Trainer is {{ trainer}} 
+#   - name: print play level variables2
+#     ansible.builtin.debug:
+#      msg: course is {{ course }}, Trainer is {{ trainer}} 
 
-- name: play level variables
-  hosts: local
-  connection: local
-  vars:
-   course: devops
-   trainer: obul
-   duration: 10hr
-  tasks:
-  - name: print play level variables
-    vars:
-      course: java
-    ansible.builtin.debug:
-     msg: course is {{ course }}, Trainer is {{ trainer}}
+# - name: play level variables
+#   hosts: local
+#   connection: local
+#   vars:
+#    course: devops
+#    trainer: obul
+#    duration: 10hr
+#   tasks:
+#   - name: print play level variables
+#     vars:
+#       course: java
+#     ansible.builtin.debug:
+#      msg: course is {{ course }}, Trainer is {{ trainer}}
 
-  - name: print play level variables2
-    ansible.builtin.debug:
-     msg: course is {{ course }}, Trainer is {{ trainer}} 
+#   - name: print play level variables2
+#     ansible.builtin.debug:
+#      msg: course is {{ course }}, Trainer is {{ trainer}} 
 
-- name: play level variables
-  hosts: local
-  connection: local
-  vars_files:
-  - course.yaml
-  tasks:
-  - name: print 
-    ansible.builtin.debug:
-     msg: course is {{ COURSE }}
+# - name: play level variables
+#   hosts: local
+#   connection: local
+#   vars_files:
+#   - course.yaml
+#   tasks:
+#   - name: print 
+#     ansible.builtin.debug:
+#      msg: course is {{ COURSE }}
 
-  - name: print play level variables
-    vars:
-     trainer: mahesh
-    ansible.builtin.debug:
-     msg: Trainer is {{ trainer}} 
+#   - name: print play level variables
+#     vars:
+#      trainer: mahesh
+#     ansible.builtin.debug:
+#      msg: Trainer is {{ trainer}} 
   
   - name: variables from prompt
     hosts: local
