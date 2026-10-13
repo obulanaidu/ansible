@@ -82,7 +82,7 @@
     private: True
 
 
-  - name: USERNAME
+  - name: PASSWORD
     prompt: please enter username
     private: True
 
