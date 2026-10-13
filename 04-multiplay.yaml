@@ -56,7 +56,7 @@
     ansible.builtin.debug:
      msg: course is {{ course }}, Trainer is {{ trainer}} 
 
-  - name: play level variables
+- name: play level variables
   hosts: local
   connection: local
   vars_files:
