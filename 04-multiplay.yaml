@@ -55,4 +55,22 @@
   - name: print play level variables2
     ansible.builtin.debug:
      msg: course is {{ course }}, Trainer is {{ trainer}} 
+
+  - name: play level variables
+  hosts: local
+  connection: local
+  vars_files:
+  - course.yaml
+  tasks:
+  - name: print play level variables
+    vars:
+      course: java
+    ansible.builtin.debug:
+     msg: course is {{ course }}, Trainer is {{ trainer}}
+
+  - name: print play level variables2
+    vars:
+     trainer: mahesh
+    ansible.builtin.debug:
+     msg: course is {{ course }}, Trainer is {{ trainer}} 
   
