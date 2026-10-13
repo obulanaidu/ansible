@@ -64,7 +64,7 @@
   tasks:
   - name: print 
     ansible.builtin.debug:
-     msg: course is {{ course }}
+     msg: course is {{ COURSE }}
 
   - name: print play level variables
     vars:
