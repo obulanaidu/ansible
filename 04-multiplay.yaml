@@ -72,5 +72,5 @@
     vars:
      trainer: mahesh
     ansible.builtin.debug:
-     msg: course is {{ course }}, Trainer is {{ trainer}} 
+     msg: Trainer is {{ trainer}} 
   
