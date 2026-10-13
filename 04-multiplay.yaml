@@ -21,3 +21,15 @@
   - name: hello from play 2 and tasks2
     ansible.builtin.debug:
       msg: "hello from PLAY-2 and TASK-2"
+
+- name: play level variables
+  hosts: local
+  connection: local
+  vars:
+   course: devops
+   trainer: obul
+   duration: 10hr
+  tasks:
+  - name: print play level variables
+    ansible.builtin.debug:
+     msg: course is {{ course }}, Trainer is {{ trainer}}
