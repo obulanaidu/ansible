@@ -33,3 +33,7 @@
   - name: print play level variables
     ansible.builtin.debug:
      msg: course is {{ course }}, Trainer is {{ trainer}}
+
+  - name: print play level variables2
+    ansible.builtin.debug:
+     msg: course is {{ course }}, Trainer is {{ trainer}} 
